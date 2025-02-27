@@ -4,12 +4,13 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class GameMap{
-    private String lokace = "Fight02";
+    private String lokace = "Start";
+    private String line;
+    private String[] lines;
   public boolean loadMap(){
       try (BufferedReader br = new BufferedReader(new FileReader("Map.txt"))){
-          String line;
           while((line = br.readLine())!=null){
-              String[] lines = line.split(" ");
+              lines = line.split(" ");
               if(Objects.equals(lokace, lines[0])) {
                   for (int i = 0; i < 6; i++) {
                       if (!Objects.equals(lines[i], "null")) {
@@ -45,4 +46,16 @@ public class GameMap{
 
 
   }
+
+    public void setLokace(String lokace) {
+        this.lokace = lokace;
+    }
+
+    public String getLokace() {
+        return lokace;
+    }
+
+    public String getLines(int i) {
+        return lines[i];
+    }
 }
