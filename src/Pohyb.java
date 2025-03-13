@@ -3,46 +3,45 @@ import java.util.Scanner;
 
 public class Pohyb {
     Scanner sc = new Scanner(System.in);
-    GameMap g = new GameMap();
-    public void pohyb(String smer){
-       // try {
+    public String pohyb(String smer, String vlevo, String nahoru, String vpravo, String dolu){
+        try {
             switch (smer) {
                 case "up":
-                    if(!Objects.equals(g.getLines(3), "null")) {
-                        g.setLokace(g.getLines(3));
+                    if(!Objects.equals(nahoru, "null")) {
+                        return nahoru;
                     }else{
                         System.out.println("Theres no room here");
+                        return "again";
                     }
-                    break;
                 case "left":
-                    if(!Objects.equals(g.getLines(2), "null")) {
-                        g.setLokace(g.getLines(2));
+                    if(!Objects.equals(vlevo, "null")) {
+                        return vlevo;
                     }else{
                         System.out.println("Theres no room here");
+                        return "again";
                     }
-                    break;
                 case "down":
-                    if(!Objects.equals(g.getLines(5), "null")) {
-                        g.setLokace(g.getLines(5));
+                    if(!Objects.equals(dolu, "null")) {
+                        return dolu;
                     }else{
                         System.out.println("Theres no room here");
+                        return "again";
                     }
-                    break;
                 case "right":
-                    if(!Objects.equals(g.getLines(4), "null")) {
-                        g.setLokace(g.getLines(4));
+                    if(!Objects.equals(vpravo, "null")) {
+                        return vpravo;
                     }else{
                         System.out.println("Theres no room here");
+                        return "again";
                     }
-                    break;
                 default:
                     System.out.println("This isnt a direction, try again");
-                    pohyb(sc.next());
-                    break;
+                    return "again";
             }
-       // }catch (Exception e){
-       //     System.out.println("Nastala chyba v pohybu");
-        //    pohyb(sc.next());
-       // }
+        }catch (Exception e){
+            System.out.println("Nastala chyba v pohybu");
+            return "again";
+        }
+
     }
 }

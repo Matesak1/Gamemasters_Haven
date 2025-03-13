@@ -47,6 +47,7 @@ public class GameMap{
 
   }
 
+
     public void setLokace(String lokace) {
         this.lokace = lokace;
     }
@@ -55,7 +56,19 @@ public class GameMap{
         return lokace;
     }
 
-    public String getLines(int i) {
-        return lines[i];
+    public String getLines(int l) {
+      try {
+          BufferedReader br = new BufferedReader(new FileReader("Map.txt"));
+          while((line = br.readLine())!=null){
+              lines = line.split(" ");
+              if(Objects.equals(lokace, lines[0])) {
+                  return lines[l];
+              }
+          }
+      }catch (Exception e){
+          System.out.println("Nastala chyba");
+          return "chyba";
+      }
+      return "chyba?";
     }
 }
