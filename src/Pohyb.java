@@ -1,8 +1,9 @@
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Pohyb {
-    Scanner sc = new Scanner(System.in);
+public class Pohyb{
+
+
     public String pohyb(String smer, String vlevo, String nahoru, String vpravo, String dolu){
         try {
             switch (smer) {
